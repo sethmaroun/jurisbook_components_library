@@ -236,15 +236,26 @@
     // Public hook (page may call this after a hard lang change that bypasses the event).
     window.JBChrome = { apply: applyChromeTranslations };
 
-    // Footer email-capture form handler. Only defines a fallback if the page
-    // hasn't provided its own (e.g. index.html ships a fancier modal version).
-    // Runs after the page's inline script (plugin injects before </body>), so a
-    // page-level `function handleFormSubmit()` declaration already wins.
+    // Footer contact form handler. Only defines a fallback if the page
+    // hasn't provided its own. HONEST behavior (2026-09-08 — owner ruling
+    // "general contact goes to WhatsApp directly"): opens the JurisBook
+    // WhatsApp specialist line prefilled with the typed email, so the
+    // contact actually reaches a human on every consumer app. The previous
+    // fallback showed a checkmark and silently discarded the input.
     if (typeof window.handleFormSubmit !== 'function') {
         window.handleFormSubmit = function (event) {
             event.preventDefault();
             var form = event.target;
             if (!form) { return; }
+            var input = form.querySelector('input[type="email"]');
+            var email = input && input.value ? String(input.value).slice(0, 200) : '';
+            var text = 'Hola, quiero ser contactado por JurisBook.' +
+                (email ? ' Mi correo es ' + email + '.' : '');
+            window.open(
+                'https://wa.me/50670881909?text=' + encodeURIComponent(text),
+                '_blank',
+                'noopener,noreferrer'
+            );
             var btn = form.querySelector('button[type="submit"]');
             if (btn && !btn.disabled) {
                 var prev = btn.innerHTML;
