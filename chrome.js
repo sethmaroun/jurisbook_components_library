@@ -134,7 +134,11 @@
             });
             button.addEventListener('click', function (event) {
                 if (button.id === 'solutions-menu-button') {
-                    window.location.href = 'https://store.jurisbook.com/';
+                    // Clicking "Soluciones" itself (not a dropdown item) goes to
+                    // the home-page section presenting the four solutions
+                    // (#soluciones, owner ruling 2026-09-09); the store is
+                    // reached via "Planes y Precios".
+                    window.location.href = 'https://www.jurisbook.com/#soluciones';
                     return;
                 }
                 event.preventDefault();
