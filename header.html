@@ -17,10 +17,10 @@
                 <div class="nav-solutions" id="solutions-menu-wrapper">
                     <button id="solutions-menu-button" type="button" class="nav-solutions-button hover:text-brand-orange transition duration-300" aria-expanded="false" aria-controls="solutions-menu" aria-haspopup="true"><span data-i18n="nav_solutions">Soluciones</span> <span class="nav-solutions-arrow" aria-hidden="true">&#9662;</span></button>
                     <div id="solutions-menu" class="nav-dropdown-menu invisible absolute left-1/2 top-full z-30 mt-3 w-56 -translate-x-1/2 translate-y-2 rounded-2xl border border-white/10 bg-brand-dark/95 p-2 opacity-0 pointer-events-none shadow-2xl backdrop-blur-xl transition duration-200">
-                        <a href="https://directory.jurisbook.com/" class="block rounded-xl px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-brand-orange transition" data-i18n="nav_solutions_directory">JB Directory</a>
-                        <a href="https://academy.jurisbook.com/" class="block rounded-xl px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-brand-orange transition" data-i18n="nav_solutions_academy">JB Academy</a>
-                        <a href="https://firm.jurisbook.com/" class="block rounded-xl px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-brand-orange transition" data-i18n="nav_solutions_firm360">JB Firm 360</a>
-                        <a href="https://orchestrator.jurisbook.com/" class="block rounded-xl px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-brand-orange transition" data-i18n="nav_solutions_orchestrator">JB Orchestrator</a>
+                        <a href="https://directory.jurisbook.com/" class="block rounded-xl px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-brand-orange transition" data-i18n="nav_solutions_directory">JB DIRECTORY</a>
+                        <a href="https://academy.jurisbook.com/" class="block rounded-xl px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-brand-orange transition" data-i18n="nav_solutions_academy">JB ACADEMY</a>
+                        <a href="https://firm.jurisbook.com/" class="block rounded-xl px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-brand-orange transition" data-i18n="nav_solutions_firm360">JB PROFESSIONAL 360</a>
+                        <a href="https://orchestrator.jurisbook.com/" class="block rounded-xl px-4 py-3 text-sm text-slate-200 hover:bg-white/5 hover:text-brand-orange transition" data-i18n="nav_solutions_orchestrator">JB ELITE</a>
                     </div>
                 </div>
 
@@ -29,12 +29,18 @@
                 <a href="https://www.jurisbook.com/#contacto" class="nav-secondary-link" data-i18n="nav_contact">Contacto</a>
 
             </nav>
-            <a href="https://wa.me/50670881909?text=Hola%2C%20quiero%20hablar%20con%20un%20especialista%20sobre%20JurisBook." target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center justify-center rounded-full bg-brand-orange px-6 py-2.5 text-sm font-bold text-black hover:bg-white transition shadow-glow whitespace-nowrap" data-i18n="nav_sales">Hablar con un especialista</a>
-
-            <button id="lang-toggle" type="button" class="flex items-center gap-1 text-sm font-bold text-gray-400 hover:text-white transition uppercase border border-gray-700 px-2 py-1 rounded">
-                <span id="lang-display">ES</span> <i class="fas fa-globe"></i>
-            </button>
-            <!-- @chrome-header-extras -->
+            <!-- App-injected header actions (e.g. the store's cart button)
+                 land in this slot, BEFORE the far-right group. -->
+            <div id="chrome-header-slot" class="flex items-center gap-3"><!-- @chrome-header-extras --></div>
+            <!-- Far-right group (owner 2026-09-09): specialist CTA + language
+                 toggle sit at the end of the bar, visually separated from the
+                 nav and app buttons. -->
+            <div class="flex items-center gap-3 lg:gap-4 lg:ml-4 lg:pl-6 lg:border-l lg:border-white/10">
+                <a href="https://wa.me/50670881909?text=Hola%2C%20quiero%20hablar%20con%20un%20especialista%20sobre%20JurisBook." target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center justify-center rounded-full bg-brand-orange px-6 py-2.5 text-sm font-bold text-black hover:bg-white transition shadow-glow whitespace-nowrap" data-i18n="nav_sales">Hablar con un especialista</a>
+                <button id="lang-toggle" type="button" class="flex items-center gap-1 text-sm font-bold text-gray-400 hover:text-white transition uppercase border border-gray-700 px-2 py-1 rounded">
+                    <span id="lang-display">ES</span> <i class="fas fa-globe"></i>
+                </button>
+            </div>
             <button id="menu-btn" class="md:hidden text-white focus:outline-none text-2xl"><i class="fas fa-bars"></i></button>
         </div>
     </div>
@@ -50,10 +56,10 @@
             </div>
             <div class="space-y-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4">
                 <span class="text-[11px] tracking-[0.2em] text-slate-400" data-i18n="nav_solutions">Soluciones</span>
-                <a href="https://directory.jurisbook.com/" class="block hover:text-brand-orange" data-i18n="nav_solutions_directory">JB Directory</a>
-                <a href="https://academy.jurisbook.com/" class="block hover:text-brand-orange" data-i18n="nav_solutions_academy">JB Academy</a>
-                <a href="https://firm.jurisbook.com/" class="block hover:text-brand-orange" data-i18n="nav_solutions_firm360">JB Firm 360</a>
-                <a href="https://orchestrator.jurisbook.com/" class="block hover:text-brand-orange" data-i18n="nav_solutions_orchestrator">JB Orchestrator</a>
+                <a href="https://directory.jurisbook.com/" class="block hover:text-brand-orange" data-i18n="nav_solutions_directory">JB DIRECTORY</a>
+                <a href="https://academy.jurisbook.com/" class="block hover:text-brand-orange" data-i18n="nav_solutions_academy">JB ACADEMY</a>
+                <a href="https://firm.jurisbook.com/" class="block hover:text-brand-orange" data-i18n="nav_solutions_firm360">JB PROFESSIONAL 360</a>
+                <a href="https://orchestrator.jurisbook.com/" class="block hover:text-brand-orange" data-i18n="nav_solutions_orchestrator">JB ELITE</a>
             </div>
 
 
