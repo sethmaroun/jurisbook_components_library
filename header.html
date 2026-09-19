@@ -1,10 +1,15 @@
 <header id="main-header" class="fixed w-full top-0 z-50 bg-brand-black/90 backdrop-blur-md py-3 border-b border-white/10 shadow-[0_12px_30px_rgba(0,0,0,0.35)] transition-all duration-300">
     <div class="container mx-auto px-6 lg:px-12 flex justify-between items-center">
         <a href="https://www.jurisbook.com/" class="text-2xl font-bold text-white flex items-center gap-2 tracking-tight shrink-0">
-            <img src="__CHROME_LOGO_SRC__" alt="JurisBook" class="h-14 w-auto">
+            <!-- Responsive logo (2026-09-19): at h-14 the wordmark is 280px wide and
+                 pushed the hamburger off a 393px phone; it scales up with the bar. -->
+            <img src="__CHROME_LOGO_SRC__" alt="JurisBook" class="h-10 md:h-12 2xl:h-14 w-auto">
         </a>
-        <div class="flex items-center gap-4 lg:gap-8">
-            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-[15px] font-medium text-slate-300">
+        <div class="flex items-center gap-3 lg:gap-6 2xl:gap-8 min-w-0">
+            <!-- Desktop nav from lg (was md): at 768-1023px the five links plus
+                 the toggle no longer fit beside the logo, so tablets and landscape
+                 phones use the mobile menu instead of clipping "Contacto". -->
+            <nav class="hidden lg:flex items-center gap-6 2xl:gap-8 text-[15px] font-medium text-slate-300">
                 <a href="https://www.jurisbook.com/#inicio" class="nav-secondary-link" data-i18n="nav_home">Inicio</a>
                 <div class="nav-solutions" id="company-menu-wrapper">
                     <button id="company-menu-button" type="button" class="nav-solutions-button hover:text-brand-orange transition duration-300" aria-expanded="false" aria-controls="company-menu" aria-haspopup="true"><span data-i18n="nav_company">Nuestra empresa</span> <span class="nav-solutions-arrow" aria-hidden="true">&#9662;</span></button>
@@ -36,16 +41,19 @@
                  toggle sit at the end of the bar, visually separated from the
                  nav and app buttons. -->
             <div class="flex items-center gap-3 lg:gap-4 lg:ml-4 lg:pl-6 lg:border-l lg:border-white/10">
-                <a href="https://wa.me/50670881909?text=Hola%2C%20quiero%20hablar%20con%20un%20especialista%20sobre%20JurisBook." target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex items-center justify-center rounded-full bg-brand-orange px-6 py-2.5 text-sm font-bold text-black hover:bg-white transition shadow-glow whitespace-nowrap" data-i18n="nav_sales">Hablar con un especialista</a>
+                <!-- Specialist CTA from xl (was lg): at 1024-1279px it crowded the
+                     nav ("Nuestra empresa" wrapped); the mobile menu carries it below xl. -->
+                <a href="https://wa.me/50670881909?text=Hola%2C%20quiero%20hablar%20con%20un%20especialista%20sobre%20JurisBook." target="_blank" rel="noopener noreferrer" class="hidden xl:inline-flex items-center justify-center rounded-full bg-brand-orange px-6 py-2.5 text-sm font-bold text-black hover:bg-white transition shadow-glow whitespace-nowrap" data-i18n="nav_sales">Hablar con un especialista</a>
                 <button id="lang-toggle" type="button" class="flex items-center gap-1 text-sm font-bold text-gray-400 hover:text-white transition uppercase border border-gray-700 px-2 py-1 rounded">
                     <span id="lang-display">ES</span> <i class="fas fa-globe"></i>
                 </button>
             </div>
-            <button id="menu-btn" class="md:hidden text-white focus:outline-none text-2xl"><i class="fas fa-bars"></i></button>
+            <button id="menu-btn" type="button" class="lg:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 shrink-0 rounded-lg text-white hover:text-brand-orange focus:outline-none text-2xl" aria-label="Menú" aria-controls="mobile-menu"><i class="fas fa-bars"></i></button>
         </div>
     </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="bg-brand-dark border-t border-white/10 md:hidden absolute w-full left-0 top-full shadow-2xl hidden">
+    <!-- Mobile Menu (scrolls inside the viewport: with the specialist CTA it is
+         taller than a landscape phone) -->
+    <div id="mobile-menu" class="bg-brand-dark border-t border-white/10 lg:hidden absolute w-full left-0 top-full shadow-2xl hidden max-h-[calc(100dvh-var(--header-offset))] overflow-y-auto">
         <nav class="flex flex-col p-6 space-y-4 font-semibold text-white uppercase text-sm">
             <a href="https://www.jurisbook.com/#inicio" class="hover:text-brand-orange" data-i18n="nav_home">Inicio</a>
             <div class="space-y-3 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4">

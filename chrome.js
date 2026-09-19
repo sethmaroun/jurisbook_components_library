@@ -78,15 +78,19 @@
         var menuBtn = document.getElementById('menu-btn');
         var mobileMenu = document.getElementById('mobile-menu');
         if (!menuBtn || !mobileMenu) { return; }
+        // Visibility is the `hidden` class alone; the panel's height comes
+        // from its own classes (viewport-bound, scrollable). The old inline
+        // max-height of 500px clipped the menu once the specialist CTA was
+        // added (2026-09-19).
         menuBtn.addEventListener('click', function () {
             mobileMenu.classList.toggle('hidden');
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.style.maxHeight = '500px';
-                mobileMenu.style.opacity = '1';
-            } else {
-                mobileMenu.style.maxHeight = '0';
-                mobileMenu.style.opacity = '0';
-            }
+        });
+        // Same-page anchors do not navigate away, so close the menu on any
+        // link tap instead of leaving it covering the target section.
+        mobileMenu.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                mobileMenu.classList.add('hidden');
+            });
         });
     }
 
