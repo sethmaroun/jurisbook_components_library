@@ -31,7 +31,10 @@
             </div>
             <div>
                 <h4 class="font-bold text-white text-sm uppercase tracking-wide mb-6" data-i18n="footer_form_title">Transforma tu Experiencia</h4>
-                <form class="flex flex-col gap-3" onsubmit="handleFormSubmit(event)">
+                <!-- Submit is bound in chrome.js (initContactForm), not inline: an
+                     inline handler needs 'unsafe-inline' in script-src and the
+                     main site now ships a nonce-based CSP (2026-09-20). -->
+                <form id="chrome-contact-form" class="flex flex-col gap-3">
                     <input type="email" required data-placeholder="ph_email_short" placeholder="Tu correo electrónico" class="px-4 py-2.5 rounded bg-white text-black border-none focus:outline-none focus:ring-2 focus:ring-brand-orange placeholder-gray-500 text-sm">
                     <button type="submit" class="bg-brand-orange text-black py-2.5 rounded text-sm font-bold hover:bg-white transition shadow-lg" data-i18n="btn_contact_me">Quiero ser contactado</button>
                 </form>

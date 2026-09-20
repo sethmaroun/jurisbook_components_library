@@ -16,8 +16,11 @@
 
 /* Pin chrome roots to Inter so the header/footer render identically across
    repos, regardless of each page's body font (e.g. the store body is Manrope).
-   Self-contained by design: the chrome must not depend on page-level typography. */
-#main-header, footer#contacto { font-family: 'Inter', sans-serif !important; }
+   Every consumer self-hosts Inter through next/font and exposes it as
+   --font-inter (2026-09-20), so the chrome reads that variable first and no
+   consumer needs a Google Fonts stylesheet for the chrome's sake. The bare
+   'Inter' fallback keeps any page that still links the webfont working. */
+#main-header, footer#contacto { font-family: var(--font-inter, 'Inter'), 'Inter', sans-serif !important; }
 
 /* Sticky header glass */
 header { transition: all 0.3s ease-in-out; }

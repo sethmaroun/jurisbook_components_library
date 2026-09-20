@@ -208,12 +208,28 @@
         });
     }
 
+    // Footer contact form. The page may define window.handleFormSubmit (the
+    // contract below); the fallback at the bottom of this file is used
+    // otherwise. Resolved at submit time so either can be defined later.
+    function initContactForm() {
+        var form = document.getElementById('chrome-contact-form');
+        if (!form) { return; }
+        form.addEventListener('submit', function (event) {
+            if (typeof window.handleFormSubmit === 'function') {
+                window.handleFormSubmit(event);
+            } else {
+                event.preventDefault();
+            }
+        });
+    }
+
     function init() {
         applyChromeTranslations(currentLang());
         initMobileMenu();
         initDropdowns();
         initLangToggle();
         initStickyHeader();
+        initContactForm();
     }
 
     function ready(fn) {
